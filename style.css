@@ -198,3 +198,14 @@ canvas {
     from { transform: scale(0.5); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
 }
+
+/* iPhone 14 / small mobile optimization */
+@media (max-width: 430px) {
+    h1 { font-size: 2rem; }
+    .modal-content { width: 92%; max-width: 380px; padding: 20px; border-radius: 14px; }
+    .modal-content h2 { font-size: 1.4rem; }
+    .modal-content p, .modal-content li { font-size: 0.95rem; }
+    .modal-button { padding: 12px 20px; font-size: 1rem; }
+    #spinBtn { padding: 14px 30px; font-size: 1.2rem; width: 90%; }
+    canvas { width: 320px; height: 320px; }
+}
