@@ -31,10 +31,10 @@ function playTickSound() {
 
 // The game segments
 let segments = [
-    { label: "Cinema Card", type: 'real', color: '#9b59b6', icon: '🎬', description: 'Cinema Card' },
+    { label: "Cinema Card", type: 'real', color: '#9b59b6', icon: '🎬', description: 'A 75€ voucher for your favorite cinema.' },
     { label: "Surf Class", type: 'fake', color: '#95a5a6', icon: '🏄‍♀️', description: 'Surf Class' },
     { label: "Speech", type: 'penalty', color: '#e74c3c', icon: '🎤', description: 'You have to give a short speech to thank the group.' },
-    { label: "Spa Voucher", type: 'real', color: '#8e44ad', icon: '🧖‍♀️', description: 'Spa Voucher' },
+    { label: "Spa Voucher", type: 'real', color: '#8e44ad', icon: '🧖‍♀️', description: 'A Wellnesstag "Cleopatra" pack at the Wellnessgarten Waging' },
     { label: "Yoga w Puppies", type: 'fake', color: '#7f8c8d', icon: '🧘‍♀️', description: 'Yoga with Puppies' },
     { label: "Secret Message", type: 'penalty', color: '#f39c12', icon: '💌', description: 'Choose one person here and tell them something nice.' },
     { label: "Confession", type: 'penalty', color: '#d35400', icon: '😳', description: 'Tell an embarrassing moment that happened to you in your life.' },
@@ -126,7 +126,7 @@ function spin() {
     currentRotation = base + extraSpins + rotationToPointer;
 
     // Spin duration between 7 and 9 seconds
-    const duration = 15 + Math.random() * 2;
+    const duration = 18 + Math.random() * 2;
     canvas.style.transition = `transform ${duration}s cubic-bezier(0.25, 1, 0.45, 0.94)`;
     canvas.style.transform = `rotate(${currentRotation}deg)`;
 
