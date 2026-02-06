@@ -137,7 +137,7 @@ function spin() {
         setTimeout(() => {
             showResult(segments[targetIdx]);
         }, 1000);
-    }, duration * 1500);
+    }, duration * 1000);
 }
 
 function showResult(seg) {
@@ -243,3 +243,4 @@ drawWheel();
 // Initialize: hide wheel and controls on page load
 document.getElementById('wheelWrapper').classList.add('hidden');
 document.getElementById('controls').classList.add('hidden');
+
