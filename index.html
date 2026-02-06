@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Anna Casino 🎰</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>🎰 Anna Casino 🎰</h1>
+            <p>Spin for your present!</p>
+        </header>
+
+        <div class="wheel-wrapper hidden" id="wheelWrapper">
+            <div class="pointer">▼</div>
+            <canvas id="wheelCanvas" width="350" height="350"></canvas>
+        </div>
+
+        <div class="controls hidden" id="controls">
+            <button id="spinBtn" class="pulse-button">SPIN THE WHEEL!</button>
+            <p id="spinCounter">Spins left: 4</p>
+        </div>
+    </div>
+
+    <div id="startingScreenModal" class="modal">
+        <div class="modal-content">
+            <h2>🎰 Anna's Prize Wheel 🎰</h2>
+            <p>You have <strong>4 spins</strong> to win prizes!</p>
+            
+            <div class="prize-section">
+                <h3>🎁 Prizes to Win (4)</h3>
+                <ul>
+                    <li>🎬 Cinema Card</li>
+                    <li>🧖‍♀️ Spa Voucher</li>
+                    <li>🏄‍♀️ Surf Class</li>
+                    <li>🧘‍♀️ Yoga with Puppies</li>
+                </ul>
+            </div>
+
+            <div class="challenge-section">
+                <h3>⚡ Challenges (4)</h3>
+                <ul>
+                    <li>🎤 Speech</li>
+                    <li>💌 Secret Message</li>
+                    <li>😳 Confession</li>
+                    <li>🤔 Penalty from the Guests</li>
+                </ul>
+            </div>
+
+            <button id="playBtn" class="modal-button">PLAY!</button>
+        </div>
+    </div>
+
+    <div id="resultModal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="resultTitle">Result!</h2>
+            <div id="resultIcon">🎁</div>
+            <p id="resultText">You won...</p>
+            <p id="resultExplanation" class="muted">Explanation...</p>
+            <button id="continueBtn">Continue</button>
+        </div>
+    </div>
+
+    <div id="spinPromptModal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Great! 🎉</h2>
+            <p id="spinsLeftText">Spins left: 4</p>
+            <p>Do you want to spin again?</p>
+            <div class="button-group">
+                <button id="spinAgainBtn" class="modal-button">Spin Again</button>
+                <button id="stopBtn" class="modal-button secondary">Stop Here</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="stopConfirmModal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Hold on! ⚠️</h2>
+            <p id="prizesLeftText">You can still win 6 more prizes!</p>
+            <p>Are you sure you want to stop?</p>
+            <div class="button-group">
+                <button id="continueSpinningBtn" class="modal-button">Keep Spinning</button>
+                <button id="confirmStopBtn" class="modal-button secondary hidden">Confirm Stop</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="gameRecapModal" class="modal hidden">
+        <div class="modal-content celebration">
+            <h1>🎉 Game Over! 🎉</h1>
+            <h2>Here's what you won:</h2>
+            <div id="recapPrizes" class="prizes-list">
+                <!-- Will be populated dynamically -->
+            </div>
+            <p>Thanks for playing, Anna!</p>
+        </div>
+    </div>
+
+    <div id="gameOverModal" class="modal hidden">
+        <div class="modal-content celebration">
+            <h1>🎉 JACKPOT! 🎉</h1>
+            <p>Both gifts have been revealed!</p>
+            <div class="prizes-list">
+                <p>🎟️ Cinema Card</p>
+                <p>🧖‍♀️ Spa Voucher</p>
+            </div>
+            <p>Happy Birthday Anna!</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+:root {
+    --gold: #FFD700;
+    --dark: #222;
+    --red: #E63946;
+    --green: #2A9D8F;
+    --blue: #457B9D;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background: #2b2b2b;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+    height: 100vh;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+    padding: 20px;
+}
+
+h1 {
+    font-family: 'Lobster', cursive;
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin: 0;
+    text-shadow: 2px 2px 4px black;
+}
+
+.wheel-wrapper {
+    position: relative;
+    margin: 20px 0;
+}
+
+/* The Triangle Pointer */
+.pointer {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+    color: white;
+    z-index: 10;
+    text-shadow: 0 4px 6px rgba(0,0,0,0.5);
+}
+
+canvas {
+    max-width: 90vw; /* Responsive for mobile */
+    height: auto;
+}
+
+.controls {
+    width: 100%;
+}
+
+#spinBtn {
+    background: var(--red);
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 50px;
+    box-shadow: 0 6px 0 #9e2a33;
+    cursor: pointer;
+    width: 80%;
+    transition: transform 0.1s;
+}
+
+#spinBtn:active {
+    box-shadow: 0 2px 0 #9e2a33;
+    transform: translateY(4px);
+}
+
+/* Pulsing animation for the button */
+.pulse-button {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Modals */
+.modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: white;
+    color: var(--dark);
+    padding: 30px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 0 20px var(--gold);
+    animation: popIn 0.3s ease-out;
+}
+
+#resultIcon {
+    font-size: 4rem;
+    margin: 10px 0;
+}
+
+#continueBtn {
+    background: var(--blue);
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.modal-button {
+    background: var(--blue);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    margin: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.modal-button:hover {
+    background: #2f5a7a;
+}
+
+.modal-button.secondary {
+    background: #999;
+}
+
+.modal-button.secondary:hover {
+    background: #777;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.prize-section, .challenge-section {
+    margin: 15px 0;
+    padding: 10px;
+}
+
+.prize-section h3 {
+    color: #9b59b6;
+}
+
+.challenge-section h3 {
+    color: #e74c3c;
+}
+
+.modal-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.modal-content li {
+    padding: 5px 0;
+    font-size: 1rem;
+}
+
+.celebration h1 {
+    color: var(--red);
+}
+
+@keyframes popIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
