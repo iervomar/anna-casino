@@ -94,7 +94,11 @@ function getTargetIndex(spinNumber) {
         return pickIndex(s => s.type === 'real' || s.type === 'penalty');
     }
     if (spinNumber === 4) {
-        // Spin 4 is always a penalty
+        // If both real prizes haven't been revealed yet, force a real prize here.
+        if (realGiftsRevealed < 2) {
+            return pickIndex(s => s.type === 'real');
+        }
+        // Otherwise pick a penalty to keep the finale playful.
         return pickIndex(s => s.type === 'penalty');
     }
     return Math.floor(Math.random() * segments.length);
@@ -210,11 +214,17 @@ document.getElementById('continueSpinningBtn').onclick = () => {
 function showGameRecap() {
     const recapEl = document.getElementById('recapPrizes');
     recapEl.innerHTML = '';
-    wonPrizes.forEach(prize => {
-        const prizeEl = document.createElement('p');
-        prizeEl.innerText = `${prize.icon} ${prize.label}`;
-        recapEl.appendChild(prizeEl);
-    });
+    // Only show prizes (real or fake), not penalties
+    const prizeOnly = wonPrizes.filter(p => p.type === 'real' || p.type === 'fake');
+    if (prizeOnly.length === 0) {
+        recapEl.innerHTML = '<p>No prizes won.</p>';
+    } else {
+        prizeOnly.forEach(prize => {
+            const prizeEl = document.createElement('p');
+            prizeEl.innerText = `${prize.icon} ${prize.label}`;
+            recapEl.appendChild(prizeEl);
+        });
+    }
     document.getElementById('gameRecapModal').classList.remove('hidden');
 }
 
@@ -230,12 +240,13 @@ function showSpinPrompt() {
 }
 
 // Starting Screen
-document.getElementById('playBtn').onclick = () => {
+document.getElementById('yesBtn').onclick = () => {
     document.getElementById('startingScreenModal').classList.add('hidden');
     document.getElementById('wheelWrapper').classList.remove('hidden');
     document.getElementById('controls').classList.remove('hidden');
     gameStarted = true;
 };
+// 'No' does nothing by design
 
 spinBtn.onclick = spin;
 drawWheel();
@@ -243,4 +254,3 @@ drawWheel();
 // Initialize: hide wheel and controls on page load
 document.getElementById('wheelWrapper').classList.add('hidden');
 document.getElementById('controls').classList.add('hidden');
-
